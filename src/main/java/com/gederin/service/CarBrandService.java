@@ -17,7 +17,10 @@ public class CarBrandService {
     private final CarBrandMapper carBrandMapper;
     private final CarBrandRepository carBrandRepository;
 
-    public List<CarBrandDto> getAllCarBrands(){
-        return carBrandRepository.findAll().stream().map(carBrandMapper::carBrandToCarBrandDto).collect(Collectors.toList());
+    public List<CarBrandDto> getAllCarBrands() {
+        return carBrandRepository.findAll()
+                .stream()
+                .map(carBrandMapper::carBrandToCarBrandDto)
+                .collect(Collectors.toList());
     }
 }
