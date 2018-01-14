@@ -1,7 +1,7 @@
 package com.gederin.api.v1;
 
-import com.gederin.model.CarBrand;
-import com.gederin.service.CarModelService;
+import com.gederin.dto.CarBrandDto;
+import com.gederin.service.CarBrandService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +18,11 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CarBrandController {
 
-    private final CarModelService carModelService;
+    private final CarBrandService carBrandService;
 
     @GetMapping("/brands")
     @ResponseStatus(HttpStatus.OK)
-    public List<CarBrand> getAllCarBrandsWithCarModels(){
-        return carModelService.getAllCarModels();
+    public List<CarBrandDto> getAllCarBrandsWithCarModels(){
+        return carBrandService.getAllCarBrands();
     }
 }
