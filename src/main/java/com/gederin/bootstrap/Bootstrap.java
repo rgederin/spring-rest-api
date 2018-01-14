@@ -34,6 +34,28 @@ public class Bootstrap implements CommandLineRunner {
 
         honda.addCarModel(hondaAccord);
 
+        CarModel hondaCivic = new CarModel();
+
+        hondaCivic.setName("Honda Civic");
+        hondaCivic.setType("Sedan");
+
+        honda.addCarModel(hondaCivic);
+
         carBrandRepository.save(honda);
+
+        CarBrand audi = new CarBrand();
+
+        audi.setName("Audi");
+        audi.setCountry("Germany");
+        audi.setDescription("Audi is is a German automobile manufacturer that designs, engineers, produces, markets and distributes luxury vehicles.");
+
+        CarModel audiTT = new CarModel();
+
+        audiTT.setName("Audi TT");
+        audiTT.setType("Sportcar");
+
+        audi.addCarModel(audiTT);
+
+        carBrandRepository.save(audi);
     }
 }

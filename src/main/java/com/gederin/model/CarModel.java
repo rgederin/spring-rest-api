@@ -1,6 +1,8 @@
 package com.gederin.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,5 +29,6 @@ public class CarModel {
     private String type;
 
     @ManyToOne
+    @JsonIgnore
     private CarBrand carBrand;
 }
