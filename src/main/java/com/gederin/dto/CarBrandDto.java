@@ -16,5 +16,7 @@ public class CarBrandDto {
     private String country;
     private String description;
 
+    private String uri;
+
     private Set<CarModel> carModels;
 }

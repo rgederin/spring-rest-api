@@ -5,6 +5,7 @@ import com.gederin.service.CarBrandService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +25,11 @@ public class CarBrandController {
     @ResponseStatus(HttpStatus.OK)
     public List<CarBrandDto> getAllCarBrandsWithCarModels(){
         return carBrandService.getAllCarBrands();
+    }
+
+    @GetMapping ("/brand/{id}")
+    @ResponseStatus (HttpStatus.OK)
+    public CarBrandDto getCarBrandById(@PathVariable Long id){
+        return carBrandService.getCarBrandById(id);
     }
 }
