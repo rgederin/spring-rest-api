@@ -1,6 +1,6 @@
-package com.gederin.repository;
+package com.gederin.api.v1.repository;
 
-import com.gederin.model.CarBrand;
+import com.gederin.api.v1.model.CarBrand;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

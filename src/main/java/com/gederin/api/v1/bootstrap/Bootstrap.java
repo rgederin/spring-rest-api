@@ -1,8 +1,8 @@
-package com.gederin.bootstrap;
+package com.gederin.api.v1.bootstrap;
 
-import com.gederin.model.CarBrand;
-import com.gederin.model.CarModel;
-import com.gederin.repository.CarBrandRepository;
+import com.gederin.api.v1.model.CarBrand;
+import com.gederin.api.v1.model.CarModel;
+import com.gederin.api.v1.repository.CarBrandRepository;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.gederin.dto;
+package com.gederin.api.v1.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

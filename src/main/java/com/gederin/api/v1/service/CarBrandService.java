@@ -1,9 +1,12 @@
-package com.gederin.service;
+package com.gederin.api.v1.service;
 
-import com.gederin.dto.CarBrandDto;
-import com.gederin.mapper.CarBrandMapper;
-import com.gederin.model.CarBrand;
-import com.gederin.repository.CarBrandRepository;
+import com.gederin.api.v1.dto.CarModelDto;
+import com.gederin.api.v1.mapper.CarModelMapper;
+import com.gederin.api.v1.model.CarBrand;
+import com.gederin.api.v1.model.CarModel;
+import com.gederin.api.v1.repository.CarBrandRepository;
+import com.gederin.api.v1.dto.CarBrandDto;
+import com.gederin.api.v1.mapper.CarBrandMapper;
 
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CarBrandService {
     private final CarBrandMapper carBrandMapper;
+
+    private final CarModelMapper carModelMapper;
 
     private final CarBrandRepository carBrandRepository;
 
@@ -39,6 +44,19 @@ public class CarBrandService {
         return Optional.of(carBrandRepository.save(carBrand))
                 .map(this::mapToDto)
                 .orElseThrow(RuntimeException::new);
+    }
+
+    public CarBrandDto addCarModelToBrand(Long carBrandId, CarModelDto carModelDto) {
+        return carBrandRepository.findById(carBrandId).map(carBrand -> {
+            CarModel carModel = carModelMapper.carModelDtoToCarModel(carModelDto);
+
+            carBrand.addCarModel(carModel);
+
+            return Optional.of(carBrandRepository.save(carBrand))
+                    .map(this::mapToDto)
+                    .orElseThrow(RuntimeException::new);
+
+        }).orElseThrow(RuntimeException::new);
     }
 
 

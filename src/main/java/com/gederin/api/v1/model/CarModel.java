@@ -1,4 +1,4 @@
-package com.gederin.model;
+package com.gederin.api.v1.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

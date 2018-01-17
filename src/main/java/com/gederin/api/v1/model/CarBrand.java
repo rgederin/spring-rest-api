@@ -1,4 +1,4 @@
-package com.gederin.model;
+package com.gederin.api.v1.model;
 
 import java.util.HashSet;
 import java.util.Set;

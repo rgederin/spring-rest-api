@@ -1,7 +1,7 @@
-package com.gederin.mapper;
+package com.gederin.api.v1.mapper;
 
-import com.gederin.dto.CarModelDto;
-import com.gederin.model.CarModel;
+import com.gederin.api.v1.model.CarModel;
+import com.gederin.api.v1.dto.CarModelDto;
 
 import org.mapstruct.Mapper;
 

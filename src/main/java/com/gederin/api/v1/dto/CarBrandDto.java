@@ -1,6 +1,6 @@
-package com.gederin.dto;
+package com.gederin.api.v1.dto;
 
-import com.gederin.model.CarModel;
+import com.gederin.api.v1.model.CarModel;
 
 import java.util.Set;
 
