@@ -5,6 +5,7 @@ import com.gederin.api.v1.dto.CarBrandDto;
 import com.gederin.api.v1.service.CarBrandService;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,8 +44,14 @@ public class CarBrandController {
         return carBrandService.createNewCarBrand(carBrandDto);
     }
 
-    @PatchMapping ("brand/{id}/add/model")
+    @PatchMapping("brand/{id}/add/model")
     public CarBrandDto addCarModelToBrand(@PathVariable Long id, @RequestBody CarModelDto carModelDto) {
         return carBrandService.addCarModelToBrand(id, carModelDto);
+    }
+
+    @DeleteMapping("/brand/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteCarModelById(@PathVariable Long id) {
+        carBrandService.deleteCarBrandById(id);
     }
 }

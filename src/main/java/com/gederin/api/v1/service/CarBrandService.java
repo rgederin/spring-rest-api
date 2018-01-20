@@ -39,7 +39,7 @@ public class CarBrandService {
     }
 
     public CarBrandDto createNewCarBrand(CarBrandDto carBrandDto) {
-        CarBrand carBrand = carBrandMapper.carBrandDtoToCarBrand(carBrandDto);
+        CarBrand carBrand = carBrandMapper.mapToCarBrand(carBrandDto);
 
         return Optional.of(carBrandRepository.save(carBrand))
                 .map(this::mapToDto)
@@ -48,7 +48,7 @@ public class CarBrandService {
 
     public CarBrandDto addCarModelToBrand(Long carBrandId, CarModelDto carModelDto) {
         return carBrandRepository.findById(carBrandId).map(carBrand -> {
-            CarModel carModel = carModelMapper.carModelDtoToCarModel(carModelDto);
+            CarModel carModel = carModelMapper.mapToCarModel(carModelDto);
 
             carBrand.addCarModel(carModel);
 
@@ -59,9 +59,12 @@ public class CarBrandService {
         }).orElseThrow(RuntimeException::new);
     }
 
+    public void deleteCarBrandById(Long id) {
+        carBrandRepository.deleteById(id);
+    }
 
     private CarBrandDto mapToDto(CarBrand carBrand) {
-        CarBrandDto carBrandDto = carBrandMapper.carBrandToCarBrandDto(carBrand);
+        CarBrandDto carBrandDto = carBrandMapper.mapToCarBrandDto(carBrand);
         carBrandDto.setUri("api/v1/brand/" + carBrand.getId());
 
         return carBrandDto;

@@ -8,9 +8,7 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface CarModelMapper {
 
-    //CarModelMapper INSTANCE = Mappers.getMapper(CarModelMapper.class);
+    CarModelDto mapToCarModelDto(CarModel carModel);
 
-    CarModelDto carModelToCarModelDto(CarModel carModel);
-
-    CarModel carModelDtoToCarModel(CarModelDto carModelDto);
+    CarModel mapToCarModel(CarModelDto carModelDto);
 }
