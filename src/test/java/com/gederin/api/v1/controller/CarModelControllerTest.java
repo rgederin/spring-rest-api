@@ -52,7 +52,7 @@ public class CarModelControllerTest {
     public void shouldReturnOkResponseForModellByIdEndpoint() throws Exception {
         when(carModelService.getCarModelsByCarBrandName(any())).thenReturn(Arrays.asList(new CarModelDto()));
 
-        mockMvc.perform(delete("/api/v1/brand/honda/car")
+        mockMvc.perform(get("/api/v1/brand/name/honda/cars")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
