@@ -28,6 +28,10 @@ public class TestHelper {
         return Arrays.asList(buildCarBrandTestObject(), buildCarBrandTestObject());
     }
 
+    public static List<CarBrandDto> buildCarBrandListDtoTestObject() {
+        return Arrays.asList(buildCarBrandDtoTestObject(),buildCarBrandDtoTestObject());
+    }
+
     public static CarBrandDto buildCarBrandDtoTestObject() {
         CarBrandDto carBrandDto = new CarBrandDto();
 
