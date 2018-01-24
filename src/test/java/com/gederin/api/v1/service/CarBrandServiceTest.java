@@ -79,6 +79,13 @@ public class CarBrandServiceTest {
         verify(carBrandRepository, times(1)).deleteById(1L);
     }
 
+    @Test
+    public void shouldAddNewCarBrand (){
+        when(carBrandRepository.save(any())).thenReturn(buildCarBrandTestObject());
+
+        assertCarBrandDto(carBrandService.createNewCarBrand(buildCarBrandDtoTestObject()));
+    }
+
     private void assertCarBrandDto(CarBrandDto carBrandDto) {
         assertThat(carBrandDto, notNullValue());
         assertThat(carBrandDto.getName(), is(NAME));
