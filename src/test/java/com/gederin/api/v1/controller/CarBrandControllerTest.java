@@ -65,7 +65,7 @@ public class CarBrandControllerTest {
 
     @Test
     public void shouldReturnCreatedResponseForAddNewBrandRepository() throws Exception {
-        when(carBrandService.createNewCarBrand(TestHelper.buildCarBrandDtoTestObject())).thenReturn(TestHelper.buildCarBrandDtoTestObject());
+        //when(carBrandService.createNewCarBrand(TestHelper.buildCarBrandDtoTestObject())).thenReturn(TestHelper.buildCarBrandDtoTestObject());
 
         mockMvc.perform(post("/api/v1/brand")
                 .content(asJsonString(TestHelper.buildCarModelDtoTestObject()))
