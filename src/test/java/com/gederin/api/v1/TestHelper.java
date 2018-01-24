@@ -2,6 +2,7 @@ package com.gederin.api.v1;
 
 
 import com.gederin.api.v1.dto.CarBrandDto;
+import com.gederin.api.v1.dto.CarModelDto;
 import com.gederin.api.v1.model.CarBrand;
 
 import java.util.Arrays;
@@ -40,5 +41,14 @@ public class TestHelper {
         carBrandDto.setDescription(DESCRIPTION);
 
         return carBrandDto;
+    }
+
+    public static CarModelDto buildCarModelDtoTestObject (){
+        CarModelDto carModelDto = new CarModelDto();
+
+        carModelDto.setName(NAME);
+        carModelDto.setType(COUNTRY);
+
+        return carModelDto;
     }
 }
