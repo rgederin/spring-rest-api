@@ -14,9 +14,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static com.gederin.api.v1.controller.CarModelControllerTest.asJsonString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -59,5 +61,15 @@ public class CarBrandControllerTest {
         mockMvc.perform(delete("/api/v1/brand/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldReturnCreatedResponseForAddNewBrandRepository() throws Exception {
+        when(carBrandService.createNewCarBrand(TestHelper.buildCarBrandDtoTestObject())).thenReturn(TestHelper.buildCarBrandDtoTestObject());
+
+        mockMvc.perform(post("/api/v1/brand")
+                .content(asJsonString(TestHelper.buildCarModelDtoTestObject()))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated());
     }
 }
