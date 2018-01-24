@@ -1,7 +1,6 @@
 package com.gederin.api.v1.controller;
 
 
-import com.gederin.api.v1.AbstractRestControllerTest;
 import com.gederin.api.v1.TestHelper;
 import com.gederin.api.v1.service.CarBrandService;
 
@@ -21,7 +20,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CarBrandControllerTest extends AbstractRestControllerTest {
+public class CarBrandControllerTest {
 
     @Mock
     private CarBrandService carBrandService;

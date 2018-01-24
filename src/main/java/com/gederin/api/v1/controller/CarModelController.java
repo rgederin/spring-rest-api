@@ -41,7 +41,7 @@ public class CarModelController {
         carModelService.deleteCarModelById(id);
     }
 
-    @PutMapping("car/{id}")
+    @PutMapping("/car/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateCarModelById(@PathVariable Long id, @RequestBody CarModelDto carModelDto) {
         carModelService.updateCarModelById(id, carModelDto);

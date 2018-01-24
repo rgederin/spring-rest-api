@@ -1,7 +1,6 @@
 package com.gederin.api.v1.controller;
 
 
-import com.gederin.api.v1.AbstractRestControllerTest;
 import com.gederin.api.v1.dto.CarModelDto;
 import com.gederin.api.v1.service.CarModelService;
 
@@ -17,13 +16,14 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CarModelControllerTest extends AbstractRestControllerTest {
+public class CarModelControllerTest {
 
     @Mock
     private CarModelService carModelService;
@@ -40,13 +40,34 @@ public class CarModelControllerTest extends AbstractRestControllerTest {
     }
 
     @Test
-    public void shouldReturnOkResponseForModelEndpoint() throws Exception {
+    public void shouldReturnOkResponseForModelsEndpoint() throws Exception {
         when(carModelService.getCarModelsByCarBrandId(1L)).thenReturn(Arrays.asList(new CarModelDto()));
 
         mockMvc.perform(get("/api/v1/brand/1/cars")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    public void shouldReturnOkResponseForModellByIdEndpoint() throws Exception {
+        when(carModelService.getCarModelsByCarBrandName(any())).thenReturn(Arrays.asList(new CarModelDto()));
+
+        mockMvc.perform(delete("/api/v1/brand/honda/car")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    /*
+    @Test
+    public void shouldReturnOkResponseUpdateModelByIdEndpoint() throws Exception {
+        when(carModelService.updateCarModelById(anyLong(), any(CarModelDto.class))).thenReturn(new CarModelDto());
+
+        mockMvc.perform(put("/api/v1/car/1")
+                .content("")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+    */
 
     @Test
     public void shouldReturnOkResponseForDeleteModelByIdEndpoint() throws Exception {
