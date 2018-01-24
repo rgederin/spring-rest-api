@@ -43,10 +43,23 @@ public class CarBrandServiceIntegrationTest {
     }
 
     @Test
-    public void shouldFetchListOfCarBrandsFromDb() {
+    public void shouldGetListOfCarBrandsFromDb() {
         List<CarBrandDto> carBrandDtos = carBrandService.getAllCarBrands();
 
         assertThat(carBrandDtos, notNullValue());
         assertThat(carBrandDtos.size(), is(2));
+    }
+
+    @Test
+    public void shouldGetCarBrandByIdFromDb() {
+        CarBrandDto carBrandDto = carBrandService.getCarBrandById(getCarBrandId());
+
+        assertThat(carBrandDto, notNullValue());
+        assertThat(carBrandDto.getName(), is("Honda"));
+        assertThat(carBrandDto.getCountry(), is("Japan"));
+    }
+
+    private Long getCarBrandId() {
+        return carBrandRepository.findAll().get(0).getId();
     }
 }
