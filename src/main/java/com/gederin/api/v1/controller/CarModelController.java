@@ -15,32 +15,39 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
+@Api(description = "Car Model Endpoint")
 @RestController
 @RequestMapping("/api/v1")
 @AllArgsConstructor
 public class CarModelController {
     private final CarModelService carModelService;
 
+    @ApiOperation("This call will return list with car models which are belongs to given car brand by id")
     @GetMapping("/brand/{id}/cars")
     @ResponseStatus(HttpStatus.OK)
     public List<CarModelDto> getCarModelsByCarBrandId(@PathVariable Long id) {
         return carModelService.getCarModelsByCarBrandId(id);
     }
 
+    @ApiOperation("This call will return list with car models which are belongs to given car brand by name")
     @GetMapping("/brand/name/{name}/cars")
     @ResponseStatus(HttpStatus.OK)
     public List<CarModelDto> getCarModelsByCarBrandName(@PathVariable String name) {
         return carModelService.getCarModelsByCarBrandName(name);
     }
 
+    @ApiOperation("This call will delete car model by id")
     @DeleteMapping("/car/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteCarModelById(@PathVariable Long id) {
         carModelService.deleteCarModelById(id);
     }
 
+    @ApiOperation("This call will update car model by id")
     @PutMapping("/car/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateCarModelById(@PathVariable Long id, @RequestBody CarModelDto carModelDto) {
