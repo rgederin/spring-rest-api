@@ -14,3 +14,19 @@ Run:   mvn docker:run
 
 http://localhost:8080/swagger-ui.html#/  - Swagger API documentation
 ``` 
+
+
+## Technologies and tools
+
+```
+Spring 5
+Spring Boot 2
+Spring Data
+H2
+Spring Web
+MapStruct
+Spring-fox Swagger2
+Docker
+CircleCi
+Codecov 
+```
