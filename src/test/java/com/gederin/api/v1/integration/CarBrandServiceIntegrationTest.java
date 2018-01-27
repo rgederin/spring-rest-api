@@ -1,10 +1,11 @@
-package com.gederin.api.v1.service;
+package com.gederin.api.v1.integration;
 
 import com.gederin.api.v1.bootstrap.Bootstrap;
 import com.gederin.api.v1.dto.CarBrandDto;
 import com.gederin.api.v1.mapper.CarBrandMapper;
 import com.gederin.api.v1.mapper.CarModelMapper;
 import com.gederin.api.v1.repository.CarBrandRepository;
+import com.gederin.api.v1.service.CarBrandService;
 
 import org.junit.Before;
 import org.junit.Test;
